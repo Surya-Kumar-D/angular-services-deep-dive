@@ -19,11 +19,8 @@
       }
       this.tasks.update((prevTask)=> [...prevTask, newTask]);
     }
-    removeTask(taskId:string) {
-      //   this.tasks() = this.tasks().filter((task: Task)=> task.id !==taskId);
-      // }
-      // updateTask(taskId: string, status: TaskStatus ) {
-      //   this.tasks() = this.tasks().map((task:Task)=> task.id === taskId ? {...task, status: status} : task)
+     updateTask(taskId: string, status: TaskStatus) {
+      this.tasks.update((prevTask)=>prevTask.map((task)=> task.id === taskId ? {...task,  status} : task) )
     }
   }
 

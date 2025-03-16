@@ -13,12 +13,8 @@ import {Task} from "../task.model";
 })
 export class TasksListComponent {
   selectedFilter = signal<string>('all');
-  taskService = inject(TaskService);
-  tasks: Task[] = [];
-
-  constructor() {
-     this.tasks = this.taskService.tasks;
-  }
+  private taskService = inject(TaskService);
+  tasks = this.taskService.allTasks;
 
   onChangeTasksFilter(filter: string) {
     this.selectedFilter.set(filter);
